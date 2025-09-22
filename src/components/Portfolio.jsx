@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { projects, getProjectsByCategory } from '../../data/projects.js';
+import { trackProjectClick } from './Analytics';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -38,6 +39,11 @@ const Portfolio = () => {
     if (activeFilter === 'All') return true;
     return project.categories?.includes(activeFilter);
   });
+
+  // 处理项目点击
+  const handleProjectClick = (project) => {
+    trackProjectClick(project.id, project.title);
+  };
 
   return (
     <section id="work" className="py-20 bg-gray-50">
@@ -78,6 +84,7 @@ const Portfolio = () => {
             <Link
               key={project.id}
               to={`/project/${project.id}`}
+              onClick={() => handleProjectClick(project)}
               className={`project-card bg-white rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 block ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
