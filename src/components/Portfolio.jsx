@@ -107,8 +107,8 @@ const Portfolio = () => {
                   {project.brief}
                 </p>
                 
-                {/* Category标签 - 替换原来的灰色标签 */}
-                <div className="flex flex-wrap gap-2">
+                {/* Category标签 */}
+                <div className="flex flex-wrap gap-2 mb-3">
                   {project.categories.map((category) => (
                     <span
                       key={category}
@@ -132,6 +132,25 @@ const Portfolio = () => {
                     </span>
                   ))}
                 </div>
+
+                {/* 技术标签 - 新增的灰色标签行 */}
+                {project.techTags && project.techTags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.techTags.slice(0, 4).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {project.techTags.length > 4 && (
+                      <span className="px-2 py-1 text-xs font-medium text-gray-400 bg-gray-50 rounded-md">
+                        +{project.techTags.length - 4} more
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             </Link>
           ))}
