@@ -126,6 +126,33 @@ export const MultiImageGrid = ({ images, onImageClick }) => {
   );
 };
 
+// 新增：两列网格展示组件 - 强制一行两张图片
+export const TwoColumnGrid = ({ images, onImageClick }) => {
+  if (!images || images.length === 0) return null;
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {images.map((image, idx) => (
+        <div key={idx} className="group">
+          <div 
+            className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+            onClick={() => onImageClick(image)}
+          >
+            <img 
+              src={image.src} 
+              alt={image.alt}
+              className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          {image.caption && (
+            <p className="text-center text-gray-600 mt-4 text-sm italic">{image.caption}</p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 // 新增：交替展示组件 - 文字和图片交替显示
 export const AlternatingDisplay = ({ content, images, onImageClick }) => {
   if (!content || !images) return null;
@@ -187,6 +214,11 @@ export const SmartImageDisplay = ({ images, onImageClick, displayMode = 'single'
   // 如果指定为交替模式，使用交替布局
   if (displayMode === 'alternating' && content) {
     return <AlternatingDisplay content={content} images={images} onImageClick={onImageClick} />;
+  }
+
+  // 如果指定为两列模式，使用两列布局
+  if (displayMode === 'two-column') {
+    return <TwoColumnGrid images={images} onImageClick={onImageClick} />;
   }
 
   // 如果指定为单张模式，每张图片单独显示
