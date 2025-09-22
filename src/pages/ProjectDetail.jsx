@@ -419,33 +419,36 @@ const ProjectDetail = () => {
             </h2>
             <div className="h-1 mb-12 w-96" style={{background: project.colors?.underlineGradient || 'var(--gradient-secondary)'}}></div>
             
-            <div className="prose prose-lg max-w-none mb-12">
-              {Array.isArray(section.content) ? (
-                section.content.map((paragraph, index) => (
-                  <div key={index} className="text-lg text-gray-700 leading-relaxed mb-4">
+            {/* 只在非交替模式下显示文字内容 */}
+            {section.imageDisplayMode !== 'alternating' && (
+              <div className="prose prose-lg max-w-none mb-12">
+                {Array.isArray(section.content) ? (
+                  section.content.map((paragraph, index) => (
+                    <div key={index} className="text-lg text-gray-700 leading-relaxed mb-4">
+                      <ReactMarkdown 
+                        components={{
+                          p: ({children}) => <p className="mb-4">{children}</p>,
+                          strong: ({children}) => <strong className="font-semibold text-gray-800">{children}</strong>
+                        }}
+                      >
+                        {paragraph}
+                      </ReactMarkdown>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-lg text-gray-700 leading-relaxed">
                     <ReactMarkdown 
                       components={{
                         p: ({children}) => <p className="mb-4">{children}</p>,
                         strong: ({children}) => <strong className="font-semibold text-gray-800">{children}</strong>
                       }}
                     >
-                      {paragraph}
+                      {section.content}
                     </ReactMarkdown>
                   </div>
-                ))
-              ) : (
-                <div className="text-lg text-gray-700 leading-relaxed">
-                  <ReactMarkdown 
-                    components={{
-                      p: ({children}) => <p className="mb-4">{children}</p>,
-                      strong: ({children}) => <strong className="font-semibold text-gray-800">{children}</strong>
-                    }}
-                  >
-                    {section.content}
-                  </ReactMarkdown>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             {/* 特性卡片 */}
             {section.features && section.features.length > 0 && (
@@ -504,6 +507,7 @@ const ProjectDetail = () => {
                 images={section.images}
                 onImageClick={(image) => handleImageClick(image, section.images)}
                 displayMode={section.imageDisplayMode || 'single'}
+                content={section.content}
               />
             )}
           </div>
