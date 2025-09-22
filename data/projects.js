@@ -9,6 +9,7 @@ export const projects = [
     subtitle: 'Library Experience for the Future',
     categories: ['UIUX', 'Research'],  // 多分类支持
     tags: ['User Experience Design', 'Mobile App', 'Research'],
+    techTags: ['#Figma', '#Wireframing & Prototyping', '#Design System'],  // 技术标签
     
     // ========== 主页展示 ==========
     thumbnail: '/media/projects/stumbldoor/hero/hero-image.jpg',  // 列表页缩略图
@@ -192,7 +193,7 @@ export const projects = [
 
       {
         id: 'final',
-        title: 'Final Display',
+        title: 'Final Showcase',
         icon: '🚀',
         content: 'The final app design showcases a clean, intuitive interface.',
         imageDisplayMode: 'single', // 单图模式
@@ -222,10 +223,11 @@ export const projects = [
       subtitle: 'Modern integrated Community Platform for AI Tools',
       categories: ['UIUX', 'Programming', 'Research'],
       tags: ['UI/UX Design', 'React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Frontend Development',  'Web Development'],
+      techTags: ['#Figma','#React', '#TypeScript', '#Next.js'],
       
-      thumbnail: '/media/projects/aicommunity/Homepage.png',
-      brief: 'An AI community platform focused on prompt engineering, conversation sharing & learning, and community events.',
-      heroImage: '/media/projects/aicommunity/Homepage.png',
+      thumbnail: '/media/projects/aicommunity/Hero.jpg',
+      brief: 'An in-app integrated community system designed for AI Tools.',
+      heroImage: '/media/projects/aicommunity/Hero.jpg',
       heroVideo: null,
       
       domain: ['AI Product Design & Development', 'Web Platform', 'Learning Community'],
@@ -266,12 +268,12 @@ export const projects = [
           imageDisplayMode: 'grid',
            images: [
              {
-               src: '/media/projects/ai-community/research/user-interviews.jpg',
-               alt: 'User Interview Insights',
-               caption: 'Key insight: Users want to share "my AI story" not just "how to use AI"'
+               src: '/media/projects/aicommunity/MarketInsights.jpg',
+               alt: 'User Interview & Market Insights',
+               caption: 'Key insight: 90% of participants want to have an in-app community.'
              },
              {
-               src: '/media/projects/ai-community/research/competitive-analysis.jpg',
+               src: '/media/projects/aicommunity/CompetitiveAnalysis.jpg',
                alt: 'Competitive Analysis',
                caption: 'Analysis of existing platforms: Twitter, Reddit, Discord - all lack specialized AI community features'
              },
@@ -281,7 +283,7 @@ export const projects = [
                caption: 'Key user personas'
              },
              {
-               src: '/media/projects/ai-community/research/user-journey.jpg',
+               src: '/media/projects/aicommunity/Userjourneymap.jpg',
                alt: 'User Journey Map',
                caption: 'User journey from discovery to active community participation'
              }
@@ -290,21 +292,30 @@ export const projects = [
         
         {
           id: 'solution-strategy',
-          title: 'Solution & Design Approach',
+          title: 'Solution & Design Process',
           icon: '💡',
-          content: 'Our solution addresses the core insight: users want to share their AI experiences, not just learn techniques. We designed a three-post-type system that accommodates different sharing needs: Share Chat & Thoughts for AI interactions, Share Prompt for technical knowledge, and Community Events for real-time collaboration. The platform emphasizes content discovery through intelligent search and personalized recommendations, while maintaining privacy protection for sensitive AI conversations.',
-          imageDisplayMode: 'single',
+          content: [
+            'We aimed to create an in-app community homepage that is both familiar—leveraging patterns users already know from Reddit, RedNotes, and YouTube—and tailored for AI-specific use cases such as prompt sharing and event discovery. The design evolved from a **three-column layout** inspired by Reddit/YouTube into a **two-panel structure** that better fits AI LLM application design. In addition, the post layout was changed from single-post per row to multi-post previews per row, allowing users to scan content more efficiently. ',
+            'Our solution addresses the core insight: **users want to share their AI experiences, not just learn techniques.** So we designed a **three-post-type** system that accommodates different sharing needs: Share Chat & Thoughts for AI interactions, Share Prompt for technical knowledge, and Community Events for real-time collaboration.',
+            "Our **rating system** enables users to rate prompt effectiveness, creating a **positive feedback loop** that surfaces the most valuable content. High-rated prompts gain visibility, encouraging quality contributions and providing immediate recognition to creators.",
+          ],
+          imageDisplayMode: 'alternating',
           images: [
             {
-              src: '/media/projects/ai-community/strategy/solution-framework.jpg',
-              alt: 'Solution Framework',
-              caption: 'Three-pillar approach: Knowledge Sharing + Community Building + Privacy Protection'
+              src: '/media/projects/aicommunity/Designprocess.jpg',
+              alt: 'Design Process',
+              caption: 'Share Chat & Thoughts, Share Prompt, and Community Event interfaces with distinct visual treatments'
             },
             {
-              src: '/media/projects/ai-community/strategy/design-principles.jpg',
-              alt: 'Design Principles',
-              caption: 'Core design principles: Clean & Clear, Consistency, Accessibility, Modern'
-            }
+              src: '/media/projects/aicommunity/DiagramPost.jpg',
+              alt: 'Three Post Types',
+              caption: 'Share Chat & Thoughts, Share Prompt, and Community Event interfaces with distinct visual treatments'
+            },
+            {
+              src: '/media/projects/aicommunity/Ratingsystem2.jpg',
+              alt: 'Rating System',
+              caption: 'Interactive voting and rating system for prompt effectiveness with real-time feedback'
+            },
           ]
         },
         
@@ -333,13 +344,13 @@ export const projects = [
           imageDisplayMode: 'grid',
           images: [
             {
-              src: '/media/projects/aicommunity/DiagramPost.jpg',
+              src: '/media/projects/aicommunity/Postingflow.jpg',
               alt: 'Three Post Types',
               caption: 'Share Chat & Thoughts, Share Prompt, and Community Event interfaces with distinct visual treatments'
             },
             {
-              src: '/media/projects/ai-community/features/voting-system.jpg',
-              alt: 'Voting System',
+              src: '/media/projects/aicommunity/Ratingsystem.jpg',
+              alt: 'Rating System',
               caption: 'Interactive voting and rating system for prompt effectiveness with real-time feedback'
             },
             {
@@ -348,7 +359,7 @@ export const projects = [
               caption: 'Advanced search capabilities with tag filtering and content categorization'
             },
             {
-              src: '/media/projects/aicommunity/features/personal-center.jpg',
+              src: '/media/projects/aicommunity/Mybookmarks.png',
               alt: 'Personal Center',
               caption: 'User dashboard with AI Coins system, bookmarks, and content management'
             }
@@ -357,9 +368,11 @@ export const projects = [
         
          {
            id: 'technical-implementation',
-           title: 'Technical Implementation & Codes',
+           title: 'Technical Implementation & Coding Structure',
            icon: '💻',
-           content: 'Built with modern web technologies, the platform ensures excellent performance and developer experience. Next.js 14 with App Router provides optimal performance, TypeScript ensures type safety, and Tailwind CSS enables rapid development. The application is fully responsive, accessible, and optimized for all devices with a focus on user experience and maintainability.',
+           content:  ['Built with modern web technologies, the platform ensures excellent performance and developer experience. Next.js 14 with App Router provides optimal performance, TypeScript ensures type safety, and Tailwind CSS enables rapid development. The application is fully responsive, accessible, and optimized for all devices with a focus on user experience and maintainability.',
+            'Core code structure is based on INFORMATION_ARCHITECTURE_CN_EN.md, ARCHITECTURE_CN_EN.md andREADME.md',
+           ],
            buttons: [
              {
                text: 'View Full Code & Documentation',
@@ -384,29 +397,7 @@ export const projects = [
               detail: 'Utility-first CSS framework for consistent design and rapid development'
             },
           ],
-          imageDisplayMode: 'grid',
-          images: [
-            {
-              src: '/media/projects/ai-community/tech/code-structure.jpg',
-              alt: 'Code Architecture',
-              caption: 'Clean, modular code structure with TypeScript interfaces and component organization'
-            },
-            {
-              src: '/media/projects/ai-community/tech/component-hierarchy.jpg',
-              alt: 'Component Hierarchy',
-              caption: 'Reusable component system with proper state management and data flow'
-            },
-            {
-              src: '/media/projects/ai-community/tech/performance.jpg',
-              alt: 'Performance Metrics',
-              caption: 'Lighthouse scores: Performance 95+, Accessibility 100, Best Practices 100'
-            },
-            {
-              src: '/media/projects/ai-community/tech/responsive.jpg',
-              alt: 'Responsive Design',
-              caption: 'Mobile, tablet, and desktop layouts with consistent user experience'
-            }
-          ]
+          
         },
 
         {
@@ -414,29 +405,7 @@ export const projects = [
           title: 'Design System & Visual Language',
           icon: '🎨',
           content: 'Rather than creating a completely new design system, we used ChatGPT\'s built-in community as our design reference and foundation. This approach ensures familiarity and reduces user learning curve while maintaining a clean, content-focused aesthetic. The design system is built to be highly customizable, allowing other AI applications to adapt the visual language to match their brand identity—colors, typography, spacing, and component styles can all be easily modified to align with different AI tools\' existing design systems. We followed basic accessibility principles including good color contrast, readable typography, and responsive design to ensure the platform works well across different devices and user needs.',
-         imageDisplayMode: 'grid',
-          images: [
-            {
-              src: '/media/projects/ai-community/design-system/color-palette.jpg',
-              alt: 'Color Palette',
-              caption: 'Customizable color system: ChatGPT-inspired foundation with good contrast and readability'
-            },
-            {
-              src: '/media/projects/ai-community/design-system/typography.jpg',
-              alt: 'Typography System',
-              caption: 'Clear typography: Readable fonts and proper sizing for different screen sizes'
-            },
-            {
-              src: '/media/projects/ai-community/design-system/components.jpg',
-              alt: 'Component Library',
-              caption: 'Modular component library: Easy to customize for different AI applications'
-            },
-            {
-              src: '/media/projects/ai-community/design-system/spacing.jpg',
-              alt: 'Spacing System',
-              caption: 'Responsive spacing: Consistent layout that works across devices'
-            }
-          ]
+         
        },
 
         {
@@ -488,6 +457,7 @@ export const projects = [
     subtitle: '',
     categories: ['UIUX','Research'],  // 多分类支持
     tags: ['User Experience Design', 'Mobile App', 'Research'],
+    techTags: ['#Figma', '#User Research', '#Prototyping'],
     
     thumbnail: '/media/projects/ziplink/Slide27.jpeg',  // 列表页缩略图
     brief: 'Redesign the user experience of future in-car system.',
@@ -631,7 +601,7 @@ export const projects = [
 
       {
         id: 'final',
-        title: 'Final Display',
+        title: 'Final Showcase',
         icon: '🚀',
         content: 'The final app design showcases a clean, intuitive interface.',
         imageDisplayMode: 'single', // 单图模式
@@ -642,15 +612,15 @@ export const projects = [
           },
           {
             src: '/media/projects/ziplink/Slide25.jpeg',
-            alt: 'Final Display2'
+            alt: 'Final Showcase2'
           },
           {
             src: '/media/projects/ziplink/Slide26.jpeg',
-            alt: 'Final Display3'
+            alt: 'Final Showcase3'
           },
           {
             src: '/media/projects/ziplink/Slide2.jpeg',
-            alt: 'Final Display4'
+            alt: 'Final Showcase4'
           }
         ]
       }
@@ -664,6 +634,7 @@ export const projects = [
     subtitle: 'Third Person Role Playing Game',
     categories: ['Game', '3D', 'Programming'], // 多分类支持
     tags: ['Game Design', 'Unity', '3D Environment Design', 'C#'],
+    techTags: ['#Unity', '#C#', '#Maya', '#Blender', '#3D Modeling'],
     
     thumbnail: '/media/projects/eternaldreams/HeroCover.jpg',
     brief: 'A Third Person 3D Role-playing game made in Unity. You are the chosen adventurer, who came into this fantastic world.',
