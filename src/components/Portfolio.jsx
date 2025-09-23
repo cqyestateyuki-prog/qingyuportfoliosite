@@ -44,7 +44,7 @@ const Portfolio = () => {
 
   return (
     <section id="work" className="py-20 bg-gray-50">
-      <div style={{ maxWidth: '100%', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px' }}>//调整页面左右距离
+      <div style={{ maxWidth: '100%', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px' }}>
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
