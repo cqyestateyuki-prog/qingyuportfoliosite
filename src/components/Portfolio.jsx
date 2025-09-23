@@ -98,15 +98,15 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
+              <div className="p-4 flex flex-col flex-grow" style={{ padding: '16px' }}>
+                <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: '4px' }}>
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-2 line-clamp-2">
+                <p className="text-gray-600 line-clamp-2" style={{ marginBottom: '8px' }}>
                   {project.brief}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-2">
+                <div className="flex flex-wrap gap-2" style={{ marginBottom: '8px' }}>
                   {project.categories.map((category) => (
                     <span
                       key={category}
