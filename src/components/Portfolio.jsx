@@ -132,7 +132,7 @@ const Portfolio = () => {
                   ))}
                 </div>
 
-                <div className="mt-auto">
+                <div style={{ marginTop: '8px' }}>
                   {project.techTags && project.techTags.length > 0 ? (
                     <div className="flex flex-wrap gap-1.5">
                       {project.techTags.slice(0, 5).map((tag) => (
