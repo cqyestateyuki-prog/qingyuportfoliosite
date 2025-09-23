@@ -79,7 +79,7 @@ const Portfolio = () => {
               key={project.id}
               to={`/project/${project.id}`}
               onClick={() => handleProjectClick(project)}
-              className={`project-card bg-white rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 block ${
+              className={`project-card bg-white rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 block flex flex-col ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${300 + index * 100}ms` }}
@@ -98,7 +98,7 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {project.title}
                 </h3>
@@ -110,7 +110,7 @@ const Portfolio = () => {
                   {project.categories.map((category) => (
                     <span
                       key={category}
-                      className={`px-3 py-1 text-sm font-medium rounded-full ${
+                      className={`px-3 py-1 font-medium rounded-full ${
                         category === 'UIUX' 
                           ? 'bg-purple-100 text-purple-700' 
                           : category === 'Game'
@@ -125,30 +125,35 @@ const Portfolio = () => {
                           ? 'bg-indigo-100 text-indigo-700'
                           : 'bg-gray-100 text-gray-700'
                       }`}
+                      style={{ fontSize: '14px', lineHeight: '1.4' }}
                     >
                       {category}
                     </span>
                   ))}
                 </div>
 
-                {project.techTags && project.techTags.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {project.techTags.slice(0, 5).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
-                        style={{ fontSize: '12px' }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {project.techTags.length > 5 && (
-                      <span className="px-2 py-1 text-xs font-medium text-gray-400 bg-gray-50 rounded-md" style={{ fontSize: '12px' }}>
-                        +{project.techTags.length - 5} more
-                      </span>
-                    )}
-                  </div>
-                )}
+                <div className="mt-auto">
+                  {project.techTags && project.techTags.length > 0 ? (
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.techTags.slice(0, 5).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 font-medium text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+                          style={{ fontSize: '12px', lineHeight: '1.2' }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                      {project.techTags.length > 5 && (
+                        <span className="px-2 py-1 font-medium text-gray-400 bg-gray-50 rounded-md" style={{ fontSize: '12px', lineHeight: '1.2' }}>
+                          +{project.techTags.length - 5} more
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="h-6"></div>
+                  )}
+                </div>
               </div>
             </Link>
           ))}
