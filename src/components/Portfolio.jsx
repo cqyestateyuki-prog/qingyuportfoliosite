@@ -84,7 +84,7 @@ const Portfolio = () => {
               }`}
               style={{ transitionDelay: `${300 + index * 100}ms` }}
             >
-              <div className="relative overflow-hidden aspect-[3/2]">
+              <div className="relative overflow-hidden aspect-[4/3]">
                 <img
                   src={project.thumbnail || project.heroImage}
                   alt={project.title}
