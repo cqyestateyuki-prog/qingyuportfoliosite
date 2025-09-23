@@ -98,15 +98,15 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <div className="p-4 flex flex-col flex-grow">
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">
+                <p className="text-gray-600 mb-2 line-clamp-2">
                   {project.brief}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-3">
+                <div className="flex flex-wrap gap-2 mb-2">
                   {project.categories.map((category) => (
                     <span
                       key={category}
