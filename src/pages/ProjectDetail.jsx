@@ -303,14 +303,38 @@ const ProjectDetail = () => {
           <div className="relative group rounded-3xl overflow-hidden shadow-2xl mb-12">
             <div className="aspect-[16/10] bg-gradient-to-br from-purple-100 to-blue-100">
               {project.heroVideo ? (
-                <video 
-                  className="w-full h-full object-cover"
-                  controls
-                  poster={project.heroImage}
-                >
-                  <source src={project.heroVideo} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                // 检查是否是 Vimeo 链接
+                project.heroVideo.includes('vimeo.com') ? (
+                  <iframe
+                    src={`https://player.vimeo.com/video/${project.heroVideo.split('/').pop().split('?')[0]}?autoplay=0&loop=0&muted=0`}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title={project.title}
+                  />
+                ) : 
+                // 检查是否是 YouTube 链接
+                project.heroVideo.includes('youtube.com') || project.heroVideo.includes('youtu.be') ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${project.heroVideo.includes('youtu.be') ? project.heroVideo.split('youtu.be/')[1].split('?')[0] : project.heroVideo.split('v=')[1].split('&')[0]}?autoplay=0&rel=0`}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={project.title}
+                  />
+                ) : (
+                  // 普通视频文件
+                  <video 
+                    className="w-full h-full object-cover"
+                    controls
+                    poster={project.heroImage}
+                  >
+                    <source src={project.heroVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )
               ) : (
                 <>
                   <img 
@@ -490,10 +514,11 @@ const ProjectDetail = () => {
                     className={`inline-flex items-center px-6 py-3 font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl ${
                       button.type === 'github' 
                         ? 'bg-gray-800 text-white hover:bg-gray-900' 
-                        : button.type === 'download'
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700'
-                        : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
+                        : 'text-white hover:opacity-90'
                     }`}
+                    style={button.type !== 'github' ? {
+                      background: project.colors?.heroGradient || 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)'
+                    } : {}}
                   >
                     {button.text}
                     {button.type === 'download' ? (
