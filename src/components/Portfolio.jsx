@@ -79,7 +79,7 @@ const Portfolio = () => {
         </div>
 
         {/* 项目网格 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredProjects.map((project, index) => (
             <Link
               key={project.id}
@@ -143,7 +143,7 @@ const Portfolio = () => {
                 {/* 技术标签 - 新增的灰色标签行 */}
                 {project.techTags && project.techTags.length > 0 && (
                   <div className="flex flex-wrap gap-1.5">
-                    {project.techTags.slice(0, 4).map((tag) => (
+                    {project.techTags.slice(0, 5).map((tag) => (
                       <span
                         key={tag}
                         className="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
@@ -151,9 +151,9 @@ const Portfolio = () => {
                         {tag}
                       </span>
                     ))}
-                    {project.techTags.length > 4 && (
+                    {project.techTags.length > 5 && (
                       <span className="px-2 py-1 text-xs font-medium text-gray-400 bg-gray-50 rounded-md">
-                        +{project.techTags.length - 4} more
+                        +{project.techTags.length - 5} more
                       </span>
                     )}
                   </div>
